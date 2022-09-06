@@ -1,0 +1,128 @@
+<p class="text-xs-center">Реєстрація</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error':
+        (form.get('email').invalid && form.get('email').touched) ||
+        serverErrors.forbiddenEmail
+    }"
+  >
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control underlined"
+      id="email"
+      placeholder="Введите email"
+      formControlName="email"
+    /><span
+      class="form-help-text"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <span *ngIf="form.get('email')['errors']['required']">
+        Електронна пошта не може бути пуста
+      </span>
+      <span *ngIf="form.get('email')['errors']['email']">
+        Введіть коректну електронну пошту.
+      </span>
+    </span>
+
+    <span class="form-help-text" *ngIf="serverErrors.forbiddenEmail">
+      Користувач з такою електронною адресою вже зареєстрований.
+    </span>
+  </div>
+
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': form.get('password').invalid && form.get('password').touched
+    }"
+  >
+    <label for="password">Пароль</label>
+    <input
+      type="password"
+      class="form-control underlined"
+      id="password"
+      placeholder="Введите пароль"
+      formControlName="password"
+    />
+    <span
+      class="form-help-text"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+      <span *ngIf="form.get('password')['errors']['required']">
+        Пароль не може бути пустий
+      </span>
+      <span
+        *ngIf="
+          form.get('password')['errors']['minlength'] &&
+          form.get('password')['errors']['minlength']['requiredLength']
+        "
+      >
+        Пароль занадто короткий. Пароль не може бути менший, ніж
+        {{ form.get("password")["errors"]["minlength"]["requiredLength"] }}
+        символів
+      </span>
+    </span>
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': form.get('name').invalid && form.get('name').touched
+    }"
+  >
+    <label for="name">Ім'я</label>
+    <input
+      type="text"
+      class="form-control underlined"
+      id="name"
+      placeholder="Введите имя"
+      formControlName="name"
+    />
+    <span
+      class="form-help-text"
+      *ngIf="form.get('name').invalid && form.get('name').touched"
+    >
+      <span *ngIf="form.get('name')['errors']['required']">
+        Ім'я не може бути пустим
+      </span>
+      <span *ngIf="form.get('name')['errors']['minlength']">
+        Ім'я занадто коротке. Ім'я не може бути коротшим, ніж
+        {{ form.get("name")["errors"]["minlength"]["requiredLength"] }}
+        символів
+      </span>
+    </span>
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': form.get('agree').invalid && form.get('agree').touched
+    }"
+  >
+    <label for="agree">
+      <input
+        class="checkbox"
+        id="agree"
+        type="checkbox"
+        formControlName="agree"
+      />
+      <span>Погоджуюсь з правилами</span>
+    </label>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-block btn-primary"
+      [disabled]="form.invalid"
+    >
+      Зареєструватися
+    </button>
+  </div>
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      Вже є акаунт?
+      <a [routerLink]="'/login'"> Увійти! </a>
+    </p>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+<div class="title-block">
+  <h3 class="title pull-left">Сторінка історії <span class="sparkline bar"></span>
+  </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline" (click)="openFilter()">
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!isLoaded" class="text-center">
+  <mm-loader></mm-loader>
+</div>
+  <div *ngIf="isLoaded">
+      <mm-history-chart [data]="chartData"></mm-history-chart>
+      
+      <mm-history-events 
+      [categories]="categories"
+      [events]="filteredEvents"
+      ></mm-history-events>
+      <div *ngIf="isFilterVisible">   
+        <mm-history-filter
+        (onFilterApply)="onFilterApply($event)"
+        (onFilterCancel)="onFilterCancel()"
+        [categories]="categories"
+        ></mm-history-filter>
+      </div>
+  </div>
+  
+  

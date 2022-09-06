@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "hufchak@mail.com",
+      "password": "roman2001",
+      "name": "Роман"
+    },
+    {
+      "email": "gufchak2001@gmail.com",
+      "password": "12345678",
+      "name": "Roman",
+      "id": 2
+    }
+  ],
+  "bill": {
+    "value": 239590,
+    "currency": "UAH"
+  },
+  "categories": [
+    {
+      "name": "Дім",
+      "capacity": 15000,
+      "id": 1
+    },
+    {
+      "name": "Їда",
+      "capacity": 5000,
+      "id": 2
+    },
+    {
+      "name": "Магазин",
+      "capacity": 800,
+      "id": 3
+    },
+    {
+      "name": "Сім'я",
+      "capacity": 10000,
+      "id": 4
+    },
+    {
+      "name": "Тестова категорія",
+      "capacity": 10000,
+      "id": 5
+    },
+    {
+      "name": "Old Category",
+      "capacity": 10000,
+      "id": 6
+    },
+    {
+      "name": "Витрати на тиждень",
+      "capacity": 2000,
+      "id": 7
+    },
+    {
+      "name": "Прибуток за тиждень",
+      "capacity": 100000,
+      "id": 8
+    },
+    {
+      "name": "Зарплата",
+      "capacity": 100000,
+      "id": 9
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 1250,
+      "category": 2,
+      "date": "12.06.2021 19:49:02",
+      "description": "Нічого не подарували"
+    },
+    {
+      "id": 2,
+      "type": "outcome",
+      "amount": 1700,
+      "category": 1,
+      "date": "12.06.2021 19:49:02",
+      "description": "Нічого не подарували"
+    },
+    {
+      "type": "outcome",
+      "amount": 2050,
+      "category": 2,
+      "date": "01.08.2022 20:27:42",
+      "description": "Витратив на їжу",
+      "id": 3
+    },
+    {
+      "type": "outcome",
+      "amount": 700,
+      "category": 3,
+      "date": "01.08.2022 20:28:09",
+      "description": " Запчастина до авто",
+      "id": 4
+    },
+    {
+      "type": "outcome",
+      "amount": 8000,
+      "category": 4,
+      "date": "01.08.2022 20:28:26",
+      "description": " Новий комп'ютер",
+      "id": 5
+    },
+    {
+      "type": "outcome",
+      "amount": 2000,
+      "category": 4,
+      "date": "01.08.2022 20:35:01",
+      "description": "Шоппінг",
+      "id": 6
+    },
+    {
+      "type": "income",
+      "amount": 15555,
+      "category": 4,
+      "date": "03.08.2022 11:03:20",
+      "description": "Заробітня плата",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 3000,
+      "category": 5,
+      "date": "03.08.2022 23:53:31",
+      "description": "Витратив на їжу",
+      "id": 8
+    },
+    {
+      "type": "income",
+      "amount": 10000,
+      "category": 8,
+      "date": "31.08.2022 17:14:39",
+      "description": "Чудовий прибуток",
+      "id": 9
+    },
+    {
+      "type": "outcome",
+      "amount": 7555,
+      "category": 4,
+      "date": "31.08.2022 17:15:29",
+      "description": "з",
+      "id": 10
+    },
+    {
+      "type": "outcome",
+      "amount": 8000,
+      "category": 8,
+      "date": "31.08.2022 17:16:08",
+      "description": "премія",
+      "id": 11
+    },
+    {
+      "type": "income",
+      "amount": 80000,
+      "category": 8,
+      "date": "31.08.2022 17:16:17",
+      "description": " премія",
+      "id": 12
+    },
+    {
+      "type": "income",
+      "amount": 25000,
+      "category": 9,
+      "date": "31.08.2022 17:17:48",
+      "description": "Зарплата за перший робочий місяць на посаді Junior Front-End Developer",
+      "id": 13
+    }
+  ]
+}

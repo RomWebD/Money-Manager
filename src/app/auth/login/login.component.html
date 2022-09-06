@@ -1,0 +1,84 @@
+<p class="text-xs-center">Увійдіть для роботи</p>
+
+<div 
+@fade
+class="alert alert-{{ message.type }}" *ngIf="message.text">
+  {{ message.text }}
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': form.get('email').invalid && form.get('email').touched
+    }"
+  >
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control underlined"
+      id="email"
+      formControlName="email"
+      placeholder="Введіть вашу електронну пошту"
+    />
+    <span
+      class="form-help-text"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <span *ngIf="form.get('email')['errors']['required']">
+        Електронна пошта не може бути пуста
+      </span>
+      <span *ngIf="form.get('email')['errors']['email']">
+        Введіть коректну електронну пошту.
+      </span>
+    </span>
+  </div>
+
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': form.get('password').invalid && form.get('password').touched
+    }"
+  >
+    <label for="password">Пароль</label>
+    <input
+      type="password"
+      class="form-control underlined"
+      id="password"
+      formControlName="password"
+      placeholder="Введіть ваш пароль"
+    />
+    <span
+      class="form-help-text"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+      <span *ngIf="form.get('password')['errors']['required']">
+        Пароль не може бути пустий
+      </span>
+      <span
+        *ngIf="
+          form.get('password')['errors']['minlength'] &&
+          form.get('password')['errors']['minlength']['requiredLength']
+        "
+      >
+        Пароль занадто короткий. Пароль не може бути менший, ніж
+        {{ form.get("password")["errors"]["minlength"]["requiredLength"] }}
+        символів
+      </span>
+    </span>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-block btn-primary"
+      [disabled]="form.invalid"
+    >
+      Увійти
+    </button>
+  </div>
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      Немає акаунту? <a [routerLink]="'/registration'">Реєстрація!</a>
+    </p>
+  </div>
+</form>
